@@ -1,7 +1,7 @@
 import requests
 import os
 
-os.system('cls')
+os.system('cls || clear')
 
 cep = input('Digite o CEP: ')
 r = requests.get('https://viacep.com.br/ws/{}/json/'.format(cep))
