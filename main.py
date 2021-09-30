@@ -1,25 +1,32 @@
 import requests
 import os
+import sys
 
-os.system('cls || clear')
 
-cep = input('Digite o CEP: ')
-r = requests.get('https://viacep.com.br/ws/{}/json/'.format(cep))
+def main(args):
+    cep = args[1]
+    if len(cep) != 8:
+        print('Quantidade de dígitos inválida!')
+        exit()
 
-data = r.json()
+    r = requests.get('https://viacep.com.br/ws/{}/json/'.format(cep))
+    data = r.json()
 
-print('''
-    CEP:            {}
-    Logradouro:     {}
-    Bairro:         {}
-    Localidade:     {}
-    UF:             {}
-    DDD:            {}
-'''.format(
-    data['cep'],
-    data['logradouro'],
-    data['bairro'],
-    data['localidade'],
-    data['uf'],
-    data['ddd']
-))
+    if 'erro' not in data:
+        print('O CEP "{}" foi encontrado para consulta:\n'.format(cep))
+        print('CEP:         {}'.format(data['cep']))
+        print('Logradouro:  {}'.format(data['logradouro']))
+        print('Bairro:      {}'.format(data['bairro']))
+        print('Localidade:  {}'.format(data['localidade']))
+        print('UF:          {}'.format(data['uf']))
+        print('DDD:         {}\n'.format(data['ddd']))
+        # print('\n')
+    else:
+        print('O CEP "{}" foi encontrado para consulta!'.format(cep))
+
+    return 0
+
+
+if __name__ == '__main__':
+    os.system('cls || clear')
+    sys.exit(main(sys.argv))
