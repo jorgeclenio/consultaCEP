@@ -20,7 +20,6 @@ def main(args):
         print('Localidade:  {}'.format(data['localidade']))
         print('UF:          {}'.format(data['uf']))
         print('DDD:         {}\n'.format(data['ddd']))
-        # print('\n')
     else:
         print('O CEP "{}" foi encontrado para consulta!'.format(cep))
 
