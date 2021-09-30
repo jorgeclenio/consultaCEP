@@ -4,15 +4,20 @@
 
 1. Baixe o projeto na sua máquina:
 ```bash
-$ git clone https://github.com/jorgeclenio/consultaCEP.git
+sudo git clone https://github.com/jorgeclenio/consultaCEP.git
 ```
 
 2. Entre na pasta do projeto:
 ```bash
-$ cd consultaCEP/
+cd consultaCEP/
 ```
 
-3. Execute o script:
+3. Instalar as dependências.
 ```bash
-$ sudo python3 main.py
+sudo pip3 install -r requirements.txt
+```
+
+4. Execute o script:
+```bash
+sudo python3 main.py
 ```
