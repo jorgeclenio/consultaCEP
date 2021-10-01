@@ -1,6 +1,6 @@
-import requests
 import os
 import sys
+import requests
 
 
 def main(args):
@@ -9,7 +9,7 @@ def main(args):
         print('Quantidade de dígitos inválida!')
         exit()
 
-    r = requests.get('https://viacep.com.br/ws/{}/json/'.format(cep))
+    r = requests.get(f'https://viacep.com.br/ws/{cep}/json/')
     data = r.json()
 
     if 'erro' not in data:
@@ -21,7 +21,7 @@ def main(args):
         print('UF:          {}'.format(data['uf']))
         print('DDD:         {}\n'.format(data['ddd']))
     else:
-        print('O CEP "{}" foi encontrado para consulta!'.format(cep))
+        print(f'O CEP "{cep}" não foi encontrado para consulta!')
 
     return 0
 
